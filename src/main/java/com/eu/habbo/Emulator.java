@@ -35,22 +35,22 @@ public final class Emulator {
     private static final String OS_NAME = System.getProperty("os.name");
     private static final String CLASS_PATH = System.getProperty("java.class.path");
 
-    public final static int MAJOR = 2;
-    public final static int MINOR = 4;
-    public final static int BUILD = 0;
+    public final static int MAJOR = 0;
+    public final static int MINOR = 0;
+    public final static int BUILD = 1;
     
     public final static String PREVIEW = "";
 
-    public static final String version = "Arcturus Morningstar" + " " + MAJOR + "." + MINOR + "." + BUILD;
+    public static final String version = "RotoEmu" + " " + MAJOR + "." + MINOR + "." + BUILD;
     private static final String logo =
             "\n" +
-            "███╗   ███╗ ██████╗ ██████╗ ███╗   ██╗██╗███╗   ██╗ ██████╗ ███████╗████████╗ █████╗ ██████╗ \n" +
-                    "████╗ ████║██╔═══██╗██╔══██╗████╗  ██║██║████╗  ██║██╔════╝ ██╔════╝╚══██╔══╝██╔══██╗██╔══██╗\n" +
-                    "██╔████╔██║██║   ██║██████╔╝██╔██╗ ██║██║██╔██╗ ██║██║  ███╗███████╗   ██║   ███████║██████╔╝\n" +
-                    "██║╚██╔╝██║██║   ██║██╔══██╗██║╚██╗██║██║██║╚██╗██║██║   ██║╚════██║   ██║   ██╔══██║██╔══██╗\n" +
-                    "██║ ╚═╝ ██║╚██████╔╝██║  ██║██║ ╚████║██║██║ ╚████║╚██████╔╝███████║   ██║   ██║  ██║██║  ██║\n" +
-                    "╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝\n" +
-                    "                                                                                             ";
+            "  _____       _        ______                 \n" +
+                    " |  __ \\     | |      |  ____|                \n" +
+                    " | |__) |___ | |_ ___ | |__   _ __ ___  _   _ \n" +
+                    " |  _  // _ \\| __/ _ \\|  __| | '_ ` _ \\| | | |\n" +
+                    " | | \\ \\ (_) | || (_) | |____| | | | | | |_| |\n" +
+                    " |_|  \\_\\___/ \\__\\___/|______|_| |_| |_|\\__,_|" +
+                    "\n" + ("(fork of Arcturus Morningstar 2.4.0)");
 
     public static String build = "";
     public static boolean isReady = false;
@@ -104,11 +104,8 @@ public final class Emulator {
 
             System.out.println(logo);
 
-            LOGGER.info("This project is for educational purposes only. This Emulator is an open-source fork of Arcturus created by TheGeneral.");
             LOGGER.info("Version: {}", version);
             LOGGER.info("Build: {}", build);
-            LOGGER.info("Remember to sign up your hotel to join our toplist beta at https://bit.ly/2NN0rxq");
-            LOGGER.info("Join our discord at https://discord.gg/syuqgN");
 
             long startTime = System.nanoTime();
 
@@ -141,7 +138,7 @@ public final class Emulator {
             Emulator.rconServer.connect();
             Emulator.badgeImager = new BadgeImager();
 
-            LOGGER.info("Arcturus Morningstar has succesfully loaded.");
+            LOGGER.info("RotoEmu has succesfully loaded.");
             LOGGER.info("System launched in: {}ms. Using {} threads!", (System.nanoTime() - startTime) / 1e6, Runtime.getRuntime().availableProcessors() * 2);
             LOGGER.info("Memory: {}/{}MB", (runtime.totalMemory() - runtime.freeMemory()) / (1024 * 1024), (runtime.freeMemory()) / (1024 * 1024));
 
@@ -219,7 +216,7 @@ public final class Emulator {
         Emulator.isShuttingDown = true;
         Emulator.isReady = false;
 
-        LOGGER.info("Stopping Arcturus Morningstar {}", version);
+        LOGGER.info("Stopping RotoEmu {}", version);
 
         try {
             if (Emulator.getPluginManager() != null)
@@ -270,7 +267,7 @@ public final class Emulator {
         } catch (Exception e) {
         }
 
-        LOGGER.info("Stopped Arcturus Morningstar {}", version);
+        LOGGER.info("Stopped RotoEmu {}", version);
 
         if (Emulator.database != null) {
             Emulator.getDatabase().dispose();
